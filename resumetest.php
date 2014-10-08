@@ -72,7 +72,7 @@ else if(isset($_REQUEST['logout'])) {
 
 <html>
     <head>
-        <title>OES-Resume Test</title>
+        <title>Resume Test</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
         <meta http-equiv="PRAGMA" content="NO-CACHE"/>
@@ -140,7 +140,7 @@ if($_GLOBALS['message']) {
 
         $result=executeQuery("select t.testid,t.testname,DATE_FORMAT(st.starttime,'%d %M %Y %H:%i:%s') as startt,sub.subname as sname,TIMEDIFF(st.endtime,CURRENT_TIMESTAMP) as remainingtime from subject as sub,studenttest as st,test as t where sub.subid=t.subid and t.testid=st.testid and st.stdid=".$_SESSION['stdid']." and st.status='inprogress' order by st.starttime desc;");
         if(mysql_num_rows($result)==0) {
-            echo"<h3 style=\"color:#0000cc;text-align:center;\">There are no incomplete exams, that needs to be resumed! Please Try Again..!</h3>";
+            echo"<h3 style=\"color:#0000cc;text-align:center;\">There are no incomplete tests, that needs to be resumed! Please Take another test..!</h3>";
         }
         else {
         //editing components
